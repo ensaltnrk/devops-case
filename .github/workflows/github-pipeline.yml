@@ -24,7 +24,7 @@ jobs:
       - name: adservice
         uses: docker/build-push-action@v2
         with:
-          context: ./devops-case/case/microservices-demo/src/adservice
+          context: ./case/microservices-demo/src/adservice
           push: true
           tags: enesaltinorak/adservice:latest
 
