@@ -7,7 +7,7 @@ on:
 
 env:
   DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-  DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
+  DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN_NEW }}
 
 jobs:
   build-and-push:
@@ -15,7 +15,7 @@ jobs:
 
     env:
       DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-      DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN_NEW }}
 
     steps:
       - name: Checkout code
