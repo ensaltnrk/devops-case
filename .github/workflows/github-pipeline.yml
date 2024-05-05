@@ -13,11 +13,7 @@ env:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
-
-    env:
-      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-
+    
     steps:
       
       - name: Login to Docker Hub
@@ -34,81 +30,83 @@ jobs:
         with:
           context: ./case/microservices-demo/src/adservice
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/adservice:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/adservice:latest
+        env:
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
 
       - name: cartservice
         uses: docker/build-push-action@v2
         with:
           context: ./case/microservices-demo/src/cartservice/src
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/cartservice:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/cartservice:latest
 
       - name: checkoutservice
         uses: docker/build-push-action@v2
         with:
           context: ./case/microservices-demo/src/checkoutservice/
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/checkoutservice:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/checkoutservice:latest
 
       - name: currencyservice
         uses: docker/build-push-action@v2
         with:
           context: ./case/microservices-demo/src/currencyservice/
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/currencyservice:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/currencyservice:latest
 
       - name: emailservice
         uses: docker/build-push-action@v2
         with:
           context: ./case/microservices-demo/src/emailservice/
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/emailservice:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/emailservice:latest
 
       - name: frontend
         uses: docker/build-push-action@v2
         with:
           context: ./case/microservices-demo/src/frontend/
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/frontend:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/frontend:latest
 
       - name: loadgenerator
         uses: docker/build-push-action@v2
         with:
           context: ./case/microservices-demo/src/loadgenerator/
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/loadgenerator:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/loadgenerator:latest
 
       - name: paymentservice
         uses: docker/build-push-action@v2
         with:
           context: ./case/microservices-demo/src/paymentservice/
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/paymentservice:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/paymentservice:latest
 
       - name: productcatalogservice
         uses: docker/build-push-action@v2
         with:
           context: ./case/microservices-demo/src/productcatalogservice/
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/productcatalogservice:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/productcatalogservice:latest
 
       - name: recommendationservice
         uses: docker/build-push-action@v2
         with:
           context: ./case/microservices-demo/src/recommendationservice/
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/recommendationservice:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/recommendationservice:latest
 
       - name: shippingservice
         uses: docker/build-push-action@v2
         with:
           context: ./case/microservices-demo/src/shippingservice/
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/shippingservice:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/shippingservice:latest
 
       - name: shoppingassistantservice
         uses: docker/build-push-action@v2
         with:
           context: ./case/microservices-demo/src/shoppingassistantservice/
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/shoppingassistantservice:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/shoppingassistantservice:latest
